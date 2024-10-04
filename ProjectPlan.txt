@@ -1,0 +1,140 @@
+
+Development Approach
+   - Agile methodology
+   - 2-weeks per sprint
+   - fibonacci estimation
+   - html/css/javascript
+
+
+I. Functionality
+1. Tour browsing - 
+      - description about the tour -1
+      - price -1
+      - schedule (place, time, activities) -1
+      - show computed average rating -2
+      - tour management -2
+
+2. Online booking
+      - send booking email confirmation -1
+      - booking cancellation -1
+      - online secure payment -1
+      - booking status: booked, paid, cancelled, modify -1
+
+3. Tour review
+      - 1 rating from 1 to 5 -2
+      - customer comments/recommendations -2
+
+4. Admin Interface
+      - manage user accounts
+            user types: customer, system users (user, admin) -1
+            activities: customer+user creation, change privilege -1
+      - report generation -2
+
+5. System Monitoring & Reporting
+      - system performance -2
+      - monitor error logs -2
+      - booking report and analytics -2
+
+6. Customer Support
+      - send email for clarifications -1
+
+7. System integration
+      - api for third-party integrations -3
+
+
+II. Scope
+      - will cover only NZ tours
+
+
+
+Project Roadmap/Release Planning
+Release 1:
+
+
+Release 2:
+
+
+Release 3:
+
+
+Iteration Planning
+1. Estimate the effort of user stories
+2. Do the plan
+
+
+System Interfaces
+1. Tour listing page
+2. User/admin login page
+3. Booking page
+
+
+
+III. Documentation:
+??? Introduction - wen
+Team Structure / governance - task 1
+Project Kick-off Meeting - task 2
+Scope of Work - task 3
+??? System Design (1, 2, 4)
+Product backlog prioritization/Refinement - task 4
+Release plan / Sprint plan - task 5 / task 7
+??? Costing / budget - task 6 - arnold
+??? Reflection report - task 8 - hengpan
+Sign-off
+
+
+
+
+
+Identified stakeholders:
+   1. Tourists/customers
+   2. Tour Operators/Tour Owners
+   3. System administrators
+   4. Project Team (Product Owner, Scrum Master, Dev't Team, Sponsor)
+
+
+Features and functionality needed for both users and administrators
+User stories categorized by different roles:
+
+● For Tourists/Customers
+   As a tourist, I want to browse available tours, so that I can find options that interest me.
+      Acceptance Criteria: Users can filter tours by category, location, and price.
+   As a tourist, I want to view detailed information about each tour, so that I can make informed decisions.
+      Acceptance Criteria: Each tour page includes a description, itinerary, duration, price, and reviews.
+   As a tourist, I want to book a tour online, so that I can secure my spot easily.
+      Acceptance Criteria: Users can select dates, number of participants, and complete payment through a secure gateway.
+   As a tourist, I want to receive confirmation emails after booking, so that I have all the details at hand.
+      Acceptance Criteria: A confirmation email is sent immediately after booking, containing all relevant details.
+   As a tourist, I want to be able to cancel or modify my booking, so that I can manage my plans flexibly.
+      Acceptance Criteria: Users can cancel or modify bookings within a specified time frame, with a clear refund policy.
+   As a tourist, I want to leave reviews for tours I’ve taken, so that I can share my experiences with others.
+      Acceptance Criteria: Users can rate tours and provide written feedback after the tour is completed.
+
+● For Tour Operators/Administrators
+   As a tour operator, I want to create and manage tour listings, so that I can keep my offerings up to date.
+      Acceptance Criteria: Operators can add, edit, or delete tours and manage details like pricing and availability.
+   As a tour operator, I want to view booking reports and analytics, so that I can assess the performance of my tours.
+      Acceptance Criteria: Operators can access dashboards showing sales, cancellations, and customer feedback.
+   As a tour operator, I want to manage customer inquiries, so that I can provide timely responses.
+      Acceptance Criteria: Operators have a messaging system to communicate with customers regarding inquiries or concerns.
+   As a tour operator, I want to set seasonal pricing and promotions, so that I can attract more customers.
+      Acceptance Criteria: Operators can schedule discounts and special offers that apply to specific dates or tours.
+   As a tour operator, I want to manage payment processing, so that I can receive payments securely.
+      Acceptance Criteria: The system integrates with payment gateways, allowing for secure transactions and providing operators with transaction reports.
+
+● For Admins
+   As an admin, I want to manage user accounts, so that I can maintain the integrity of the platform.
+      Acceptance Criteria: Admins can create, edit, and deactivate user accounts for both customers and operators.
+   As an admin, I want to monitor system performance and error logs, so that I can ensure the system runs smoothly.
+      Acceptance Criteria: Admins have access to performance metrics and can view logs for troubleshooting.
+   As an admin, I want to enforce policies and regulations for tour operators, so that the platform maintains quality standards.
+      Acceptance Criteria: Admins can set guidelines for tour operators and review compliance.
+   As an admin, I want to generate reports on user activity and bookings, so that I can analyze system usage and revenue.
+      Acceptance Criteria: Admins can generate customizable reports on various metrics.
+
+● For Developers
+   As a developer, I want to ensure the system is responsive, so that users can book tours on any device.
+      Acceptance Criteria: The booking platform functions seamlessly on mobile, tablet, and desktop.
+   As a developer, I want to implement secure payment processing, so that user financial information is protected.
+      Acceptance Criteria: The payment system complies with industry standards for security (e.g., PCI DSS).
+   As a developer, I want to create an API for third-party integrations, so that the system can connect with other applications.
+      Acceptance Criteria: The API provides endpoints for tour listings, bookings, and user management.
