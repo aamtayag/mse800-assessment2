@@ -37,25 +37,37 @@
                 <p><strong>Price:</strong> $100</p>
                 <button onclick="openBookingForm('Scenic Nature Tour', 100)">Book Now</button>
             </div>
+            <div class="tour">
+                <h3>Christchurch and Canterbury Day Tour</h3>
+                <p>Visit the Botanic Gardens, the Antarctic Centre, and explore the surrounding Canterbury region, including Akaroa or the Banks Peninsula.</p>
+                <p><strong>Price:</strong> $120</p>
+                <button onclick="openBookingForm('Christchurch and Canterbury Day Tour', 120)">Book Now</button>
+            </div>
+
+
+
             <!-- Add more tours as needed -->
         </section>
 
         <section id="booking-form" style="display:none;">
             <h2>Booking Form</h2>
             <form id="tourForm">
-                <label for="tour-name">Tour Name:</label>
-                <input type="text" id="tour-name" name="tour-name" readonly><br><br>
+                <fieldset>
+                    <legend>Book the Tour!!!</legend>
+                    <label for="tour-name">Tour Name:</label>
+                    <input type="text" id="tour-name" name="tour-name" readonly><br><br>
 
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" required><br><br>
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" required><br><br>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br><br>
 
-                <label for="date">Tour Date:</label>
-                <input type="date" id="date" name="date" required><br><br>
+                    <label for="date">Tour Date:</label>
+                    <input type="date" id="date" name="date" required><br><br>
 
-                <input type="submit" value="Submit Booking">
+                    <input type="submit" value="Submit Booking">
+                </fieldset>
             </form>
         </section>
 
