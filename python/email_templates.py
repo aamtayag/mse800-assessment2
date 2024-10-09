@@ -45,14 +45,21 @@ class EmailTemplates:
         return message
 
     @classmethod
-    def get_order_submission_message(cls, recipient_email):
+    def get_order_submission_message(cls, recipient_email, extra_info):
         # Create the order submission success message
         message = cls.get_base_message(recipient_email, "Order Submitted Successfully")
+
+        if extra_info is None:
+            extra_info = {}
+
+        order_id = extra_info.get("order_id", "N/A")
+        recipient_name = extra_info.get("name", "Valued Customer")
+
         html_content = f"""
         <html>
             <body style="font-family: Arial, sans-serif; color: #333;">
-                <h2 style="color: #4CAF50;">Order Submitted!</h2>
-                <p>Your order has been submitted successfully. We are processing it and will update you with the status soon.</p>
+                <h2 style="color: #4CAF50;">{recipient_name}, Order Submitted!</h2>
+                <p>Your order: {order_id} has been submitted successfully. We are processing it and will update you with the status soon.</p>
                 <p>Thank you for shopping with us!</p>
                 {cls.signature}
             </body>

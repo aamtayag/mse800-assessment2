@@ -6,36 +6,56 @@ from email_templates import EmailTemplates
 app = Flask(__name__)
 
 
+# Utility function to validate request data and return required fields
+def validate_request(data, required_fields):
+    missing_fields = [
+        field for field in required_fields if field not in data or not data.get(field)
+    ]
+    if missing_fields:
+        return False, f"Missing fields: {', '.join(missing_fields)}"
+    return True, {field: data.get(field) for field in required_fields}
+
+
 # curl -X POST http://localhost:5000/send-email -H "Content-Type: application/json" -d "{\"recipient_email\": \"346225483@qq.com\", \"email_type\": \"registration_success\"}"
 @app.route("/send-email", methods=["POST"])
 def send_email():
     try:
         # Get JSON data from the request
         data = request.json
-        recipient_email = data.get("recipient_email")
-        email_type = data.get("email_type")
-        status = data.get(
-            "status", ""
-        )  # Optional, only needed for status change emails
 
-        # Check the email type and create the corresponding message
+        # Validate common fields
+        valid, result = validate_request(data, ["recipient_email", "email_type"])
+        if not valid:
+            return jsonify({"error": result}), 400
+
+        recipient_email = result["recipient_email"]
+        email_type = result["email_type"]
+
+        # Handle different email types
         if email_type == "registration_success":
             message = EmailTemplates.get_registration_success_message(recipient_email)
+
         elif email_type == "order_submission":
-            message = EmailTemplates.get_order_submission_message(recipient_email)
-        elif email_type == "order_status_change":
-            if not status:
-                return (
-                    jsonify(
-                        {
-                            "error": "Missing 'status' field for order_status_change email"
-                        }
-                    ),
-                    400,
-                )
-            message = EmailTemplates.get_order_status_change_message(
-                recipient_email, status
+            # Validate fields required for order_submission
+            valid, result = validate_request(data, ["order_id", "email_name"])
+            if not valid:
+                return jsonify({"error": result}), 400
+
+            message = EmailTemplates.get_order_submission_message(
+                recipient_email,
+                {"order_id": result["order_id"], "name": result["email_name"]},
             )
+
+        elif email_type == "order_status_change":
+            # Validate fields required for order_status_change
+            valid, result = validate_request(data, ["status"])
+            if not valid:
+                return jsonify({"error": result}), 400
+
+            message = EmailTemplates.get_order_status_change_message(
+                recipient_email, result["status"]
+            )
+
         else:
             return jsonify({"error": "Invalid email type"}), 400
 
