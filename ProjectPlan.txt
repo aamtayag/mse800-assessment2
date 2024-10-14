@@ -48,13 +48,51 @@ II. Scope
 
 
 Project Roadmap/Release Planning
+
 Release 1:
+1. Tour browsing - 
+      - description about the tour -1
+      - price -1
+      - schedule (place, time, activities) -1
+
+2. Online booking
+      - send booking email confirmation -1 - wen
+      - booking cancellation -1 - hengpan (back-end), aries (front-end)
+      - online secure payment -1
+      - booking status: booked, paid, cancelled, modify -1
+
+4. Admin Interface - 
+      - manage user accounts
+            user types: system users (user, admin) -1
+            activities: user creation, change privilege -1
+
+6. Customer Support
+      - send email for clarifications -1
 
 
 Release 2:
+1. Tour browsing - 
+      - show computed average rating -2
+      - tour management -2
+
+3. Tour review
+      - 1 rating from 1 to 5 -2
+      - customer comments/recommendations -2
+
+4. Admin Interface
+      - report generation -2
+
+5. System Monitoring & Reporting
+      - system performance -2
+      - monitor error logs -2
+      - booking report and analytics -2
 
 
 Release 3:
+7. System integration
+      - api for third-party integrations -3
+
+
 
 
 Iteration Planning
@@ -71,12 +109,16 @@ System Interfaces
 
 III. Documentation:
 ??? Introduction - wen
-Team Structure / governance - task 1
-Project Kick-off Meeting - task 2
-Scope of Work - task 3
-??? System Design (1, 2, 4)
-Product backlog prioritization/Refinement - task 4
-Release plan / Sprint plan - task 5 / task 7
+
+Team Structure / governance - task 1 - hengpan
+Project Kick-off Meeting - task 2 - hengpan
+
+Scope of Work - task 3 - wen
+??? System Design (1, 2, 4) - wen
+
+Product backlog prioritization/Refinement - task 4 - aries
+Release plan / Sprint plan - task 5 / task 7 - aries
+
 ??? Costing / budget - task 6 - arnold
 ??? Reflection report - task 8 - hengpan
 Sign-off
