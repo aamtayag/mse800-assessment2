@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login - Tour Booking Management System</title>
+		<link href="../css/login.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+		<header class="page-header">
+            <h1>Welcome Our Tour Booking Management System!</h1>
+            <h3>Kia ora!</h3>
+        </header>
+        <div class="login-container">
+            <div class="login-form">
+                <h1>Sign In</h1>
+                <form action="#">
+                    <input type="text" placeholder="Username" required>
+                    <input type="password" placeholder="Password" required>
+                    <button class="login-btn">Sign In</button>
+                </form>
+                <p><a href="#">Forgotten your password?</a></p>
+            </div>
+            <div class="register-info">
+                <h2>Don't have an account?</h2>
+                <button class="login-btn" onclick="redirectToRegister()">Join today</button>
+                <p>Why create an account?</p>
+                <ul>
+                    <li>Faster booking</li>
+                    <li>Manage your orders</li>
+                    <li>Contact us anytime</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Tour Booking Management System</p>
+        </footer>
+
+        <script>
+            function redirectToRegister() {
+                alert('Redirecting to registration page...');
+                // Implement the jump logic of the registration page here, for example:
+                window.location.href = 'register.html';
+            }
+        </script>
+    </body>
+</html>
