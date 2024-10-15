@@ -1,0 +1,7 @@
+# coding=utf-8
+
+# booking status
+BOOKING_STATUS_BOOKED = 1
+BOOKING_STATUS_PAID = 2
+BOOKING_STATUS_CANCELLED = 3
+

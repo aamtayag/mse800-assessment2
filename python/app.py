@@ -1,11 +1,11 @@
 import logging
-
 from flask import Flask, request, jsonify
 from email_sender import EmailSender
 from email_templates import EmailTemplates
 
 import system
 import booking
+import consts
 
 app = Flask(__name__)
 
@@ -112,7 +112,7 @@ def booking_cancellation():
 
         bookingopt = booking.booking_operation()
 
-        result = bookingopt.update_booking_status(customer_email, tour, "cancelled")
+        result = bookingopt.update_booking_status(customer_email, tour, consts.BOOKING_STATUS_CANCELLED)
         if result == True:
             return jsonify({"code":0,"message": "modify success"}), 200
         else:
