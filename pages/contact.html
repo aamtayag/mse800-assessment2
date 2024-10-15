@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us - Tour Booking Management System</title>
+        <link href="../css/contact.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>Contact Us</h1>
+        </header>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Our Contact Information</h2>
+                <p><strong>Email:</strong> info@tourbooking.com</p>
+                <p><strong>Phone:</strong> +64 123 456 789</p>
+                <p><strong>Address:</strong> Level 4/3 City Road, Grafton, Auckland 1010</p>
+            </div>
+
+            <button class="email-btn" onclick="openEmail()">Send us an Email</button>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Tour Booking Management System</p>
+        </footer>
+
+        <script>
+            function openEmail() {
+                // Auto-fill recipient's email address
+                window.location.href = "mailto:info@tourbooking.com";
+            }
+        </script>
+    </body>
+</html>

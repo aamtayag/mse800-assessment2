@@ -1,0 +1,119 @@
+/* Login Page Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(-45deg, #35577D, #141E30);
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+/* Header Titles */
+.page-header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.page-header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.page-header h3 {
+    font-size: 1.5em;
+    margin: 10px 0 0;
+    font-weight: 300;
+    color: #b0c4de;
+}
+
+/* Login/Register Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.login-form,
+.register-info {
+    width: 50%;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin: 0 10px;
+}
+
+.login-form h1 {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #45a049;
+}
+
+a {
+    color: #2196F3;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.register-info h2 {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.register-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.register-info ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.register-info ul li::before {
+    content: '✔️';
+    margin-right: 10px;
+    color: #8BC34A;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
