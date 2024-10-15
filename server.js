@@ -24,15 +24,15 @@ const db = new sqlite3.Database('TourBooking.db', (err) => {
 
 // Create a table if it doesn't exist
 db.serialize(() => {
-    db.run("CREATE TABLE IF NOT EXISTS bookings (id INTEGER PRIMARY KEY AUTOINCREMENT, tour TEXT, name TEXT, email TEXT, date TEXT)");
+    db.run("CREATE TABLE IF NOT EXISTS bookings (id INTEGER PRIMARY KEY AUTOINCREMENT, tour TEXT, name TEXT, email TEXT, date TEXT, status INT)");
 });
 
 // Route to insert data
 app.post('/add-item', (req, res) => {
-    const { tour, name, email, date } = req.body;
+    const { tour, name, email, date, status } = req.body;
 
-    const stmt = db.prepare("INSERT INTO bookings (tour, name, email, date) VALUES (?, ?, ?, ?)");
-    stmt.run(tour, name, email, date, function (err) {
+    const stmt = db.prepare("INSERT INTO bookings (tour, name, email, date, status) VALUES (?, ?, ?, ?, ?)");
+    stmt.run(tour, name, email, date, status, function (err) {
         if (err) {
             return res.status(500).send('Error adding item: ' + err.message);
         }

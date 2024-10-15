@@ -95,13 +95,14 @@
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
                 const date = document.getElementById('date').value;
+                const status = 1;
 
                 const response = await fetch('http://localhost:3000/add-item', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ tour, name, email, date }),
+                    body: JSON.stringify({ tour, name, email, date, status }),
                 });
 
                 if (response.ok) {
