@@ -4,6 +4,7 @@ const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const axios = require('axios');
+const { spawn } = require('child_process');
 
 const app = express();
 const PORT = 3000;
@@ -25,6 +26,16 @@ const db = new sqlite3.Database('TourBooking.db', (err) => {
 // Create a table if it doesn't exist
 db.serialize(() => {
     db.run("CREATE TABLE IF NOT EXISTS bookings (id INTEGER PRIMARY KEY AUTOINCREMENT, tour TEXT, name TEXT, email TEXT, date TEXT, status INT)");
+});
+
+// start Python projcet
+const pythonProcess = spawn('python', ['python/app.py'], { stdio: 'inherit' });
+pythonProcess.on('error', (err) => {
+    console.error('Failed to start Python process:', err);
+});
+
+pythonProcess.on('exit', (code) => {
+    console.log(`Python process exited with code ${code}`);
 });
 
 // Route to insert data
