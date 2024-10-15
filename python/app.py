@@ -1,7 +1,11 @@
+import logging
+
 from flask import Flask, request, jsonify
 from email_sender import EmailSender
 from email_templates import EmailTemplates
 
+import system
+import booking
 
 app = Flask(__name__)
 
@@ -68,5 +72,60 @@ def send_email():
         return jsonify({"error": str(e)}), 500
 
 
+
+'''
+DESCRIPTION: booking cancellation
+
+url: http://localhost:5001/booking-cancellation
+method: POST
+body:
+{
+    "customer_email": "test@gmail.com",
+    "tour": "tour1"
+}
+
+response:
+{
+    "code":0,
+    "message": "modify success"
+}
+
+curl command:
+    curl -X POST http://localhost:5001/booking-cancellation -H "Content-Type: application/json" -d "{\"customer_email\": \"test@gmail.com\", \"tour\": \"tour1\"}"
+    
+
+'''
+@app.route("/booking-cancellation", methods=["POST"])
+def booking_cancellation():
+    try:
+        # Get JSON data from the request
+        data = request.json
+
+        # Validate common fields
+        valid, result = validate_request(data, ["customer_email", "tour"])
+        if not valid:
+            logging.error(f"validate_request failed: {result}, data: {data}")
+            return jsonify({"error": result}), 400
+
+        customer_email = result["customer_email"]
+        tour = result["tour"]
+
+        bookingopt = booking.booking_operation()
+
+        result = bookingopt.update_booking_status(customer_email, tour, "cancelled")
+        if result == True:
+            return jsonify({"code":0,"message": "modify success"}), 200
+        else:
+            return jsonify({"code":1,"message": "modify failed"}), 200
+
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+
+
+
 if __name__ == "__main__":
+    system.init_log()
     app.run(host="0.0.0.0", port=5000)
