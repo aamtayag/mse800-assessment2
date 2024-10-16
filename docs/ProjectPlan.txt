@@ -151,6 +151,12 @@ User stories categorized by different roles:
    As a tourist, I want to leave reviews for tours I’ve taken, so that I can share my experiences with others.
       Acceptance Criteria: Users can rate tours and provide written feedback after the tour is completed.
 
+   Added:
+   As a user, I want to log in and set my language preference (e.g., Māori).
+      Users can set preferred language to any language supported by the system 
+
+
+
 ● For Tour Operators/Administrators
    As a tour operator, I want to create and manage tour listings, so that I can keep my offerings up to date.
       Acceptance Criteria: Operators can add, edit, or delete tours and manage details like pricing and availability.
