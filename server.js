@@ -8,7 +8,8 @@ const { spawn } = require('child_process');
 
 const app = express();
 const PORT = 3000;
-const EMAIL_PORT = 5000;
+// const EMAIL_PORT = 5000;
+const EMAIL_PORT = 2000;
 const STATIC_SERVER_PORT = 8000;
 
 // Middleware
