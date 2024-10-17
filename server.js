@@ -9,6 +9,7 @@ const { spawn } = require('child_process');
 const app = express();
 const PORT = 3000;
 const EMAIL_PORT = 5000;
+const STATIC_SERVER_PORT = 8000;
 
 // Middleware
 app.use(cors());
@@ -27,6 +28,9 @@ const db = new sqlite3.Database('TourBooking.db', (err) => {
 db.serialize(() => {
     db.run("CREATE TABLE IF NOT EXISTS bookings (id INTEGER PRIMARY KEY AUTOINCREMENT, tour TEXT, name TEXT, email TEXT, date TEXT, status INT)");
 });
+
+// Start Python static server to serve index.html and static files
+const pythonStaticServer = spawn('python', ['-m', 'http.server', STATIC_SERVER_PORT], { stdio: 'inherit' });
 
 // start Python projcet
 const pythonProcess = spawn('python', ['python/app.py'], { stdio: 'inherit' });
