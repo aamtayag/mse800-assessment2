@@ -3,23 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contact Us - Tour Booking Management System</title>
+        <title data-lang-key="contact.title">Contact Us - Tour Booking Management System</title>
         <link href="../css/contact.css" type="text/css" rel="stylesheet">
     </head>
     <body>
         <header>
-            <h1>Contact Us</h1>
+            <h1 data-lang-key="contact.headerTitle">Contact Us</h1>
         </header>
 
         <div class="contact-container">
-            <div class="contact-info">
-                <h2>Our Contact Information</h2>
-                <p><strong>Email:</strong> info@tourbooking.com</p>
-                <p><strong>Phone:</strong> +64 123 456 789</p>
-                <p><strong>Address:</strong> Level 4/3 City Road, Grafton, Auckland 1010</p>
-            </div>
+			<div class="contact-info">
+				<h2 data-lang-key="contact.infoTitle">Our Contact Information</h2>
+				<p><strong data-lang-key="contact.emailLabel">Email:</strong> info@tourbooking.com</p>
+				<p><strong data-lang-key="contact.phoneLabel">Phone:</strong> +64 123 456 789</p>
+				<p><strong data-lang-key="contact.addressLabel">Address:</strong> Level 4/3 City Road, Grafton, Auckland 1010</p>
+					</div>
 
-            <button class="email-btn" onclick="openEmail()">Send us an Email</button>
+            <button class="email-btn" onclick="openEmail()" data-lang-key="contact.emailButton">Send us an Email</button>
         </div>
 
         <footer>
@@ -32,5 +32,7 @@
                 window.location.href = "mailto:info@tourbooking.com";
             }
         </script>
+		
+		<script src="../js/script.js"></script>
     </body>
 </html>

@@ -1,0 +1,22 @@
+{
+    "title": "Welcome to Our Tour Booking System",
+    "nav": {
+        "home": "Home",
+        "tours": "Tours",
+        "about": "About Us",
+        "contact": "Contact",
+        "login": "Sign In/Up",
+        "admin": "Admin"
+    },
+    "sectionTitle": "Your Adventure Awaits!",
+    "description": "Explore a variety of tours and book your next adventure easily.",
+	"contact": {
+		"title": "Contact Us - Tour Booking Management System",
+		"headerTitle": "Contact Us",
+		"infoTitle": "Our Contact Information",
+		"emailLabel": "Email:",
+		"phoneLabel": "Phone:",
+		"addressLabel": "Address:",
+		"emailButton": "Send us an Email"
+	}
+}

@@ -1,0 +1,22 @@
+{
+    "title": "欢迎来到我们的旅游预订系统",
+    "nav": {
+        "home": "首页",
+        "tours": "旅行",
+        "about": "关于我们",
+        "contact": "联系我们",
+        "login": "登录/注册",
+        "admin": "管理员"
+    },
+    "sectionTitle": "你的冒险之旅正等待着你！",
+    "description": "探索各种旅行，并轻松预订您的下一个冒险之旅。",
+	"contact": {
+		"title": "联系我们 - 旅游预订管理系统",
+		"headerTitle": "联系我们",
+		"infoTitle": "我们的联系方式",
+		"emailLabel": "邮箱：",
+		"phoneLabel": "电话：",
+		"addressLabel": "地址：",
+		"emailButton": "给我们发邮件"
+	}
+}

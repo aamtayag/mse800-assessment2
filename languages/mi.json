@@ -1,0 +1,22 @@
+{
+    "title": "Nau mai ki tā mātou Pūnaha Whakarite Haerenga",
+    "nav": {
+        "home": "Kāinga",
+        "tours": "Ngā Haerenga",
+        "about": "Mō Mātou",
+        "contact": "Whakapā mai",
+        "login": "Takiuru/Takiwā",
+        "admin": "Kaiwhakahaere"
+    },
+    "sectionTitle": "Kei te Tatari tō Haerenga!",
+    "description": "Tirohia ngā haerenga maha, ā, whakaritea tō haerenga e whai ake nei.",
+	"contact": {
+		"title": "Whakapā Mai - Pūnaha Whakarite Haerenga",
+		"headerTitle": "Whakapā Mai",
+		"infoTitle": "Mōhiohio Whakapā",
+		"emailLabel": "Īmēra:",
+		"phoneLabel": "Waea:",
+		"addressLabel": "Wāhi Noho:",
+		"emailButton": "Tukua mai he Īmēra"
+	}
+}
