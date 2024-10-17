@@ -7,6 +7,8 @@ domain_port = 'http://localhost:5001'
 add_user_url = domain_port+'/admin-create-users'
 modify_user_roles_url = domain_port+'/admin-modify-user-roles'
 query_user_url = domain_port+'/admin-query-userlist'
+booking_cancellation_url = domain_port+'/booking-cancellation'
+
 
 '''
 logined_username = result["logined_username"]
@@ -58,6 +60,19 @@ def test_query_user():
     }
     headers = {'Content-Type': 'application/json'}
     response = requests.get(url, data=json.dumps(data), headers=headers)
+    print('code:', response.status_code)
+    print('body:')
+    print(response.text)
+
+
+def test_booking_cancellation():
+    url = booking_cancellation_url
+    data = {
+        "customer_email": "",
+        "tour": ""
+    }
+    headers = {'Content-Type': 'application/json'}
+    response = requests.post(url, data=json.dumps(data), headers=headers)
     print('code:', response.status_code)
     print('body:')
     print(response.text)
