@@ -120,6 +120,7 @@ Product backlog prioritization/Refinement - task 4 - aries
 Release plan / Sprint plan - task 5 / task 7 - aries
 
 ??? Costing / budget - task 6 - arnold
+
 ??? Reflection report - task 8 - hengpan
 Sign-off
 
@@ -186,3 +187,29 @@ User stories categorized by different roles:
       Acceptance Criteria: The payment system complies with industry standards for security (e.g., PCI DSS).
    As a developer, I want to create an API for third-party integrations, so that the system can connect with other applications.
       Acceptance Criteria: The API provides endpoints for tour listings, bookings, and user management.
+
+
+
+Release Planning:
+
+   1-As a tourist, I want to browse available tours, so that I can find options that interest me
+   2-As a tourist, I want to view detailed information about each tour, so that I can make informed decisions
+   3-As a tourist, I want to book a tour online, so that I can secure my spot easily
+   4-As a tourist, I want to receive confirmation emails after booking, so that I have all the details at hand
+   5-As a tourist, I want to be able to cancel or modify my booking, so that I can manage my plans flexibly
+   7-As a user, I want to log in and set my language preference (e.g., Māori)
+   12-As a tour operator, I want to manage payment processing, so that I can receive payments securely
+   13-As an admin, I want to manage user accounts, so that I can maintain the integrity of the platform
+   17-As a developer, I want to ensure the system is responsive, so that users can book tours on any device
+   18-As a developer, I want to implement secure payment processing, so that user financial information is protected
+
+   6-As a tourist, I want to leave reviews for tours I’ve taken, so that I can share my experiences with others
+   8-As a tour operator, I want to create and manage tour listings, so that I can keep my offerings up to date
+   9-As a tour operator, I want to view booking reports and analytics, so that I can assess the performance of my tours
+   10-As a tour operator, I want to manage customer inquiries, so that I can provide timely responses
+   11-As a tour operator, I want to set seasonal pricing and promotions, so that I can attract more customers
+   14-As an admin, I want to monitor system performance and error logs, so that I can ensure the system runs smoothly
+   16-As an admin, I want to generate reports on user activity and bookings, so that I can analyze system usage and revenue
+
+   15-As an admin, I want to enforce policies and regulations for tour operators, so that the platform maintains quality standards
+   19-As a developer, I want to create an API for third-party integrations, so that the system can connect with other applications
