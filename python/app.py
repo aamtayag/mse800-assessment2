@@ -328,4 +328,4 @@ def admin_query_userlist():
 if __name__ == "__main__":
     system.init_log()
     system.init_system()
-    app.run(host="0.0.0.0", port=5001, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

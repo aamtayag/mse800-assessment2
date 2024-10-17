@@ -4,7 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Admin Management Interface</title>
+		<link href="../css/admin.css" type="text/css" rel="stylesheet">
         <link href="../css/style.css" type="text/css" rel="stylesheet">
+		
     </head>
     <body>
         <div id="login-section">
@@ -33,7 +35,11 @@
         </section>
 
         <section id="manage-users" style="display:none;">
-            <h2>Manage Users</h2>
+			<div class="manage-users-header">
+			    <h2 class="manage-users-title">Manage Users</h2>
+				<button id="add-user-btn">Add New User</button>
+			</div>
+
             <table id="user-table">
                 <thead>
                     <tr>
@@ -49,6 +55,31 @@
                 </tbody>
             </table>
         </section>
+		
+		<!-- Modal for adding a new user -->
+		<div id="user-modal" style="display:none;">
+			<div class="modal-content">
+				<h2>Add New User</h2>
+				<form id="user-form">
+					<label for="new-username">Username:</label>
+					<input type="text" id="new-username" name="username" required><br><br>
+					<label for="new-password">Password:</label>
+					<input type="password" id="new-password" name="password" required><br><br>
+					<label for="new-email">Email:</label>
+					<input type="email" id="new-email" name="email" required><br><br>
+					
+					
+					<select id="new-role" name="role">
+						<option value="admin">Admin</option>
+						<option value="user">User</option>
+						<option value="customer">Customer</option>
+					</select><br><br>
+					
+					<button type="submit">Add User</button>
+					<button type="button" id="close-modal">Close</button> <!-- Close button -->
+				</form>
+			</div>
+		</div>
 
         <section id="manage-tours" style="display:none;">
             <h2>Manage Tours</h2>
@@ -104,7 +135,7 @@
 
             // Function to fetch and display users
             async function loadUsers() {
-                const response = await fetch('http://localhost:3000/get-users');
+                const response = await fetch('http://localhost:5000/admin-query-userlist?logined_username=admin');
                 if (response.ok) {
                     const users = await response.json();
                     const userTableBody = document.querySelector('#user-table tbody');
@@ -112,15 +143,8 @@
                     users.forEach(user => {
                         const row = document.createElement('tr');
                         row.innerHTML = `
-                            <td>${user.id}</td>
-                            <td>${user.name}</td>
                             <td>${user.email}</td>
-                            <td>${user.status ? 'Active' : 'Inactive'}</td>
-                            <td>
-                                <button onclick="changeUserStatus(${user.id}, ${!user.status})">
-                                    ${user.status ? 'Deactivate' : 'Activate'}
-                                </button>
-                            </td>
+                            <td>${user.name}</td>
                         `;
                         userTableBody.appendChild(row);
                     });
@@ -183,7 +207,8 @@
                 alert('Delete tour functionality for tour ID: ' + tourId);
             }
         </script>
-
-        <script src="js/script.js"></script>
+		<script type="module" src="../js/admin.js"></script>
+        <script src="../js/script.js"></script>
+		
     </body>
 </html>

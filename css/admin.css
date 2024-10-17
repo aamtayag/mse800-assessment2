@@ -1,0 +1,111 @@
+/* Flexbox layout for Manage Users header */
+.manage-users-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Title should be centered */
+.manage-users-title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Style for the Add New User button on the main page */
+#add-user-btn {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+#add-user-btn:hover {
+    background-color: darkgreen;
+}
+
+/* Modal container */
+#user-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    max-width: 500px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal form styling */
+#user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#user-form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+#user-form input,
+#user-form select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+	color: black; /* Set text color to black */
+    background-color: white; /* Ensure background is white */
+}
+
+/* Buttons inside modal */
+#user-modal button:not(#close-modal) {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#user-modal button:not(#close-modal):hover {
+    background-color: darkgreen;
+}
+
+/* Style for the Close button inside the modal */
+#close-modal {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover effect for Close button */
+#close-modal:hover {
+    background-color: #cc4c4c;
+}
