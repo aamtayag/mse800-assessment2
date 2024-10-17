@@ -1,6 +1,8 @@
 # coding=utf-8
 
+import random
 import logging
+
 import db
 
 
@@ -19,3 +21,9 @@ def init_log():
 
 def init_db():
     db.get_db_instance()
+
+def init_system():
+    random.seed()
+
+def generate_random_id():
+    return random.randint(1, 9000000000)
