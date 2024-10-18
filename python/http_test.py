@@ -3,7 +3,7 @@ import requests
 import json
 
 
-domain_port = 'http://localhost:5001'
+domain_port = 'http://localhost:2000'
 add_user_url = domain_port+'/admin-create-users'
 modify_user_roles_url = domain_port+'/admin-modify-user-roles'
 query_user_url = domain_port+'/admin-query-userlist'
@@ -86,6 +86,6 @@ if __name__ == '__main__':
     #test_query_user()
     #test_add_user()
     #test_modify_user_roles()
-    test_booking_cancellation()
+    #test_booking_cancellation()
 
 
