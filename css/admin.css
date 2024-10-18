@@ -1,0 +1,230 @@
+/* Flexbox layout for Manage Users header */
+.manage-users-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* Title should be centered */
+.manage-users-title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Style for the Add New User button on the main page */
+#add-user-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+#add-user-btn:hover {
+    background-color: #218838;
+}
+
+#add-user-btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px #28a745;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+	color: black;
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Table header styling */
+th {
+    background-color: #4CAF50; /* Change this to any preferred color */
+    color: white;
+    font-weight: bold;
+}
+
+/* Alternate row colors for better readability */
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Soft gray for better contrast */
+}
+
+tr:nth-child(odd) {
+    background-color: #f1f1f1; /* Slightly different color for odd rows */
+}
+
+/* Hover effect on table rows */
+tr:hover {
+    background-color: #d4edda; /* Soft green to match button color */
+}
+
+/* Actions button styling */
+.table-actions button {
+    background-color: #17a2b8;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.table-actions button:hover {
+    background-color: #138496;
+}
+
+.table-actions button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #17a2b8;
+}
+
+/* Modal container */
+#user-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal content */
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    max-width: 500px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal form styling */
+#user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#user-form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: black;
+}
+
+#user-form input,
+#user-form select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+	color: black; /* Set text color to black */
+    background-color: white; /* Ensure background is white */
+}
+
+/* Buttons inside modal */
+#user-modal button:not(#close-modal) {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#user-modal button:not(#close-modal):hover {
+    background-color: #218838;
+}
+
+#user-modal button:not(#close-modal):focus {
+    outline: none;
+    box-shadow: 0 0 10px #28a745;
+}
+
+/* Style for the Close button inside the modal */
+#close-modal {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#close-modal:hover {
+    background-color: #c82333;
+}
+
+#close-modal:focus {
+    outline: none;
+    box-shadow: 0 0 10px #dc3545;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Hide admin sections by default */
+#admin-home, #manage-users, #manage-tours, header, footer {
+    display: none;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+    }
+
+    #add-user-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px 8px;
+    }
+
+    .table-actions button {
+        padding: 4px 8px;
+    }
+}
