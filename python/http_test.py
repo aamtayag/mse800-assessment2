@@ -25,9 +25,9 @@ def test_add_user():
     data = {
         "logined_username": "admin",
         "new_user_email": "user1@gmail.com",
-        "firstname": "firstname1",
-        "lastname": "lastname1",
-        "password": "123456"
+        "new_username": "firstname1",
+        "password": "123456",
+        "roles": "2"
     }
 
     headers = {'Content-Type': 'application/json'}
@@ -59,7 +59,8 @@ def test_query_user():
         "logined_username": "admin"
     }
     headers = {'Content-Type': 'application/json'}
-    response = requests.get(url, data=json.dumps(data), headers=headers)
+    #response = requests.get(url, data=json.dumps(data), headers=headers)
+    response = requests.get(url, params=data, headers=headers)
     print('code:', response.status_code)
     print('body:')
     print(response.text)
@@ -68,8 +69,9 @@ def test_query_user():
 def test_booking_cancellation():
     url = booking_cancellation_url
     data = {
-        "customer_email": "",
-        "tour": ""
+        "email": "aamtayag@yahoo.com",
+        "id": "1",
+        "name":"Arnold Tayag"
     }
     headers = {'Content-Type': 'application/json'}
     response = requests.post(url, data=json.dumps(data), headers=headers)
@@ -84,5 +86,6 @@ if __name__ == '__main__':
     #test_query_user()
     #test_add_user()
     #test_modify_user_roles()
+    test_booking_cancellation()
 
 

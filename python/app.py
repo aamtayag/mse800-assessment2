@@ -3,14 +3,14 @@ import logging
 from flask import Flask, request, jsonify
 from email_sender import EmailSender
 from email_templates import EmailTemplates
-
+#from flask_cors import CORS
 import system
 import booking
 import consts
 import users
 
 app = Flask(__name__)
-
+#CORS(app)
 
 # Utility function to validate request data and return required fields
 def validate_request(data, required_fields):
@@ -93,7 +93,7 @@ response:
 }
 
 curl command:
-    curl -X POST http://localhost:5001/booking-cancellation -H "Content-Type: application/json" -d "{\"customer_email\": \"test@gmail.com\", \"tour\": \"tour1\"}"
+    curl -X POST http://localhost:5001/booking-cancellation -H "Content-Type: application/json" -d "{\"email\": \"test@gmail.com\", \"id\": \"1\", \"name\": \"name1\"}"
     
 
 '''
@@ -104,17 +104,20 @@ def booking_cancellation():
         data = request.json
 
         # Validate common fields
-        valid, result = validate_request(data, ["customer_email", "tour"])
+        valid, result = validate_request(data, ["email", "id", "name"])
         if not valid:
             logging.error(f"validate_request failed: {result}, data: {data}")
             return jsonify({"error": result}), http.HTTPStatus.BAD_REQUEST
 
-        customer_email = result["customer_email"]
-        tour = result["tour"]
+        email = result["email"]
+        id = result["id"]
+        name = result["name"]
+
+
 
         bookingopt = booking.booking_operation()
 
-        result = bookingopt.update_booking_status(customer_email, tour, consts.BOOKING_STATUS_CANCELLED)
+        result = bookingopt.update_booking_status(email, id, name, consts.BOOKING_STATUS_CANCELLED)
         if result == True:
             return jsonify({"code":0,"message": "modify success"}), http.HTTPStatus.OK
         else:
@@ -154,7 +157,7 @@ def admin_create_users():
         data = request.json
 
         # Validate common fields
-        valid, result = validate_request(data, ["logined_username", "new_user_email", "firstname", "lastname", "password"])
+        valid, result = validate_request(data, ["logined_username", "new_user_email", "new_username", "password", "roles"])
         if not valid:
             logging.error(f"validate_request failed: {result}, data: {data}")
             return jsonify({"error": result}), http.HTTPStatus.BAD_REQUEST
@@ -162,8 +165,8 @@ def admin_create_users():
 
         logined_username = result["logined_username"]
         new_user_email = result["new_user_email"]
-        firstname = result["firstname"]
-        lastname = result["lastname"]
+        new_username = result["new_username"]
+        roles = result["roles"]
         password = result["password"]
 
         if logined_username != consts.ADMIN_NAME:
@@ -172,7 +175,7 @@ def admin_create_users():
 
 
         users_opt = users.user_operation()
-        add_user_result = users_opt.add_user(firstname, lastname, new_user_email, password, consts.ROLE_USER, '')
+        add_user_result = users_opt.add_user(new_user_email, new_username, password, roles)
         if add_user_result == False:
             logging.error(f"add_user failed")
             return jsonify({"code": 1, "message": "failed"}), http.HTTPStatus.OK
@@ -267,19 +270,20 @@ body:
 
 response:
 {
-    "code":0,
-    "message": "success",
-    "userlist": [
-        {
-            "email": "user1@gmail.com","roles": "admin","first_name":"","last_name":""
-        },
-        {
-            "email": "user2@gmail.com","roles": "user","first_name":"","last_name":""
-        },
-        {
-            "email": "user3@gmail.com","roles": "user","first_name":"","last_name":""
-        }
-    ]
+  "code": 0,
+  "message": "success",
+  "userlist": [
+    {
+      "email": "admin@mail.com",
+      "roles": "1",
+      "username": "admin"
+    },
+    {
+      "email": "admin@mail.com",
+      "roles": "1",
+      "username": "admin"
+    }
+  ]
 }
 
 '''
@@ -288,17 +292,18 @@ response:
 def admin_query_userlist():
     try:
         # Get JSON data from the request
-        data = request.json
-        # Validate common fields
-        valid, result = validate_request(data, ["logined_username"])
-        if not valid:
-            logging.error(f"validate_request failed: {result}, data: {data}")
-            return jsonify({"error": result}), http.HTTPStatus.BAD_REQUEST
+        #data = request.json
 
-        logined_username = result["logined_username"]
-        if logined_username != consts.ADMIN_NAME:
-            logging.error(f"only admin can query userlist")
-            return jsonify({"code": 1, "message": "failed,only admin can query userlist"}), http.HTTPStatus.FORBIDDEN
+        # Validate common fields
+        # valid, result = validate_request(data, ["logined_username"])
+        # if not valid:
+        #     logging.error(f"validate_request failed: {result}, data: {data}")
+        #     return jsonify({"error": result}), http.HTTPStatus.BAD_REQUEST
+        #
+        # logined_username = result["logined_username"]
+        # if logined_username != consts.ADMIN_NAME:
+        #     logging.error(f"only admin can query userlist")
+        #     return jsonify({"code": 1, "message": "failed,only admin can query userlist"}), http.HTTPStatus.FORBIDDEN
 
         users_opt = users.user_operation()
         userlist = users_opt.query_user_list()
@@ -310,12 +315,13 @@ def admin_query_userlist():
         userlist_json = []
         for user in userlist:
             user_json = {
-                "email": user.userid,
+                "username": user.username,
                 "roles": user.role,
-                "first_name": user.fname,
-                "last_name": user.lname
+                "email": user.email
             }
             userlist_json.append(user_json)
+
+        logging.debug("admin-query-userlist response: {}".format(userlist_json))
 
         return jsonify({"code": 0, "message": "success", "userlist": userlist_json}), http.HTTPStatus.OK
 
@@ -328,4 +334,4 @@ def admin_query_userlist():
 if __name__ == "__main__":
     system.init_log()
     system.init_system()
-    app.run(host="0.0.0.0", port=5001, debug=True)
+    app.run(host="0.0.0.0", port=2000, debug=True)

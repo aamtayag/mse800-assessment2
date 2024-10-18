@@ -36,6 +36,13 @@ class DBSqlite(DBBase):
         self.db_conn.close()
         pass
 
+    def __del__(self):
+        #logging.debug('DBSqlite __del__')
+        self.close()
+        pass
+
+def getdb():
+    return DBSqlite()
 
 g_db = None
 

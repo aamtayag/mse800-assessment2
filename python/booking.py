@@ -8,14 +8,16 @@ import system
 
 class booking_operation:
     def __init__(self):
-        self.db_conn = db.get_db_instance().get_connection()
+        #self.db_conn = db.get_db_instance().get_connection()
         pass
 
-    def update_booking_status(self, email, tour, status):
+    def update_booking_status(self, email, id, name, status):
         try:
-            cursor = self.db_conn.cursor()
-            cursor.execute('UPDATE booking SET status = ? WHERE email = ? AND tour = ?', (status, email, tour))
-            self.db_conn.commit()
+            dbobj = db.DBSqlite()
+            dbobj.connect()
+            cursor = dbobj.get_connection().cursor()
+            cursor.execute('UPDATE bookings SET STATUS = ? WHERE EMAIL = ? AND ID = ?', (status, email, id))
+            dbobj.get_connection().commit()
             return True
         except Exception as e:
             logging.error(f"update_booking_status failed: {e}")
