@@ -46,7 +46,7 @@
                         <th>User ID</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Status</th>
+                        <th>Role</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -103,110 +103,7 @@
             <p>&copy; 2024 Admin Management Interface</p>
         </footer>
 
-        <script>
-            document.getElementById('login-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
-
-                if (username === 'admin' && password === 'admin123') { // Simple hardcoded authentication
-                    document.getElementById('login-section').style.display = 'none';
-                    document.querySelector('header').style.display = 'block';
-                    document.getElementById('admin-home').style.display = 'block';
-                    document.querySelector('footer').style.display = 'block';
-                } else {
-                    alert('Invalid username or password');
-                }
-            });
-
-            document.getElementById('nav-manage-users').addEventListener('click', () => {
-                document.getElementById('admin-home').style.display = 'none';
-                document.getElementById('manage-users').style.display = 'block';
-                document.getElementById('manage-tours').style.display = 'none';
-                loadUsers();
-            });
-
-            document.getElementById('nav-manage-tours').addEventListener('click', () => {
-                document.getElementById('admin-home').style.display = 'none';
-                document.getElementById('manage-users').style.display = 'none';
-                document.getElementById('manage-tours').style.display = 'block';
-                loadTours();
-            });
-
-            // Function to fetch and display users
-            async function loadUsers() {
-                const response = await fetch('http://localhost:5000/admin-query-userlist?logined_username=admin');
-                if (response.ok) {
-                    const users = await response.json();
-                    const userTableBody = document.querySelector('#user-table tbody');
-                    userTableBody.innerHTML = '';
-                    users.forEach(user => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${user.email}</td>
-                            <td>${user.name}</td>
-                        `;
-                        userTableBody.appendChild(row);
-                    });
-                } else {
-                    alert('Failed to load users');
-                }
-            }
-
-            // Function to change user status
-            async function changeUserStatus(userId, newStatus) {
-                const response = await fetch('http://localhost:3000/update-user-status', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ userId, newStatus }),
-                });
-
-                if (response.ok) {
-                    alert('User status updated successfully!');
-                    loadUsers();
-                } else {
-                    const errorMessage = await response.text();
-                    alert('Error updating user status: ' + errorMessage);
-                }
-            }
-
-            // Function to fetch and display tours
-            async function loadTours() {
-                const response = await fetch('http://localhost:3000/get-tours');
-                if (response.ok) {
-                    const tours = await response.json();
-                    const tourTableBody = document.querySelector('#tour-table tbody');
-                    tourTableBody.innerHTML = '';
-                    tours.forEach(tour => {
-                        const row = document.createElement('tr');
-                        row.innerHTML = `
-                            <td>${tour.id}</td>
-                            <td>${tour.name}</td>
-                            <td>${tour.price}</td>
-                            <td>${tour.duration}</td>
-                            <td>
-                                <button onclick="editTour(${tour.id})">Edit</button>
-                                <button onclick="deleteTour(${tour.id})">Delete</button>
-                            </td>
-                        `;
-                        tourTableBody.appendChild(row);
-                    });
-                } else {
-                    alert('Failed to load tours');
-                }
-            }
-
-            // Placeholder functions for editing and deleting tours
-            function editTour(tourId) {
-                alert('Edit tour functionality for tour ID: ' + tourId);
-            }
-
-            function deleteTour(tourId) {
-                alert('Delete tour functionality for tour ID: ' + tourId);
-            }
-        </script>
+        
 		<script type="module" src="../js/admin.js"></script>
         <script src="../js/script.js"></script>
 		

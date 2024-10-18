@@ -16,7 +16,7 @@
 
 /* Style for the Add New User button on the main page */
 #add-user-btn {
-    background-color: green;
+    background-color: #28a745;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -27,7 +27,67 @@
 }
 
 #add-user-btn:hover {
-    background-color: darkgreen;
+    background-color: #218838;
+}
+
+#add-user-btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px #28a745;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+	color: black;
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Table header styling */
+th {
+    background-color: #4CAF50; /* Change this to any preferred color */
+    color: white;
+    font-weight: bold;
+}
+
+/* Alternate row colors for better readability */
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Soft gray for better contrast */
+}
+
+tr:nth-child(odd) {
+    background-color: #f1f1f1; /* Slightly different color for odd rows */
+}
+
+/* Hover effect on table rows */
+tr:hover {
+    background-color: #d4edda; /* Soft green to match button color */
+}
+
+/* Actions button styling */
+.table-actions button {
+    background-color: #17a2b8;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.table-actions button:hover {
+    background-color: #138496;
+}
+
+.table-actions button:focus {
+    outline: none;
+    box-shadow: 0 0 5px #17a2b8;
 }
 
 /* Modal container */
@@ -82,7 +142,7 @@
 
 /* Buttons inside modal */
 #user-modal button:not(#close-modal) {
-    background-color: green;
+    background-color: #28a745;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -92,12 +152,17 @@
 }
 
 #user-modal button:not(#close-modal):hover {
-    background-color: darkgreen;
+    background-color: #218838;
+}
+
+#user-modal button:not(#close-modal):focus {
+    outline: none;
+    box-shadow: 0 0 10px #28a745;
 }
 
 /* Style for the Close button inside the modal */
 #close-modal {
-    background-color: red;
+    background-color: #dc3545;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -105,7 +170,61 @@
     cursor: pointer;
 }
 
-/* Hover effect for Close button */
 #close-modal:hover {
-    background-color: #cc4c4c;
+    background-color: #c82333;
+}
+
+#close-modal:focus {
+    outline: none;
+    box-shadow: 0 0 10px #dc3545;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Hide admin sections by default */
+#admin-home, #manage-users, #manage-tours, header, footer {
+    display: none;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+    }
+
+    #add-user-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px 8px;
+    }
+
+    .table-actions button {
+        padding: 4px 8px;
+    }
 }
