@@ -3,14 +3,17 @@ import logging
 from flask import Flask, request, jsonify
 from email_sender import EmailSender
 from email_templates import EmailTemplates
-#from flask_cors import CORS
+from flask_cors import CORS
 import system
 import booking
 import consts
 import users
 
 app = Flask(__name__)
-#CORS(app)
+CORS(app)
+
+VALID_ROLES = {consts.ROLE_ADMIN, consts.ROLE_USER, consts.ROLE_CUSTOMER}
+
 
 # Utility function to validate request data and return required fields
 def validate_request(data, required_fields):
@@ -74,8 +77,7 @@ def send_email():
         return jsonify({"error": str(e)}), 500
 
 
-
-'''
+"""
 DESCRIPTION: booking cancellation
 
 url: http://localhost:5001/booking-cancellation
@@ -96,7 +98,9 @@ curl command:
     curl -X POST http://localhost:5001/booking-cancellation -H "Content-Type: application/json" -d "{\"email\": \"test@gmail.com\", \"id\": \"1\", \"name\": \"name1\"}"
     
 
-'''
+"""
+
+
 @app.route("/booking-cancellation", methods=["POST"])
 def booking_cancellation():
     try:
@@ -113,22 +117,21 @@ def booking_cancellation():
         id = result["id"]
         name = result["name"]
 
-
-
         bookingopt = booking.booking_operation()
 
-        result = bookingopt.update_booking_status(email, id, name, consts.BOOKING_STATUS_CANCELLED)
+        result = bookingopt.update_booking_status(
+            email, id, name, consts.BOOKING_STATUS_CANCELLED
+        )
         if result == True:
-            return jsonify({"code":0,"message": "modify success"}), http.HTTPStatus.OK
+            return jsonify({"code": 0, "message": "modify success"}), http.HTTPStatus.OK
         else:
-            return jsonify({"code":1,"message": "modify failed"}), http.HTTPStatus.OK
-
+            return jsonify({"code": 1, "message": "modify failed"}), http.HTTPStatus.OK
 
     except Exception as e:
         return jsonify({"error": str(e)}), http.HTTPStatus.INTERNAL_SERVER_ERROR
 
 
-'''
+"""
 DESCRIPTION: admin create users
 url: http://localhost:5001/admin-create-users
 method: POST
@@ -149,7 +152,9 @@ response:
 }
 
 
-'''
+"""
+
+
 @app.route("/admin-create-users", methods=["POST"])
 def admin_create_users():
     try:
@@ -157,11 +162,13 @@ def admin_create_users():
         data = request.json
 
         # Validate common fields
-        valid, result = validate_request(data, ["logined_username", "new_user_email", "new_username", "password", "roles"])
+        valid, result = validate_request(
+            data,
+            ["logined_username", "new_user_email", "new_username", "password", "roles"],
+        )
         if not valid:
             logging.error(f"validate_request failed: {result}, data: {data}")
             return jsonify({"error": result}), http.HTTPStatus.BAD_REQUEST
-
 
         logined_username = result["logined_username"]
         new_user_email = result["new_user_email"]
@@ -171,24 +178,26 @@ def admin_create_users():
 
         if logined_username != consts.ADMIN_NAME:
             logging.error(f"only admin can create users")
-            return jsonify({"code": 1, "message": "failed,only admin can create users"}), http.HTTPStatus.FORBIDDEN
-
+            return (
+                jsonify({"code": 1, "message": "failed,only admin can create users"}),
+                http.HTTPStatus.FORBIDDEN,
+            )
 
         users_opt = users.user_operation()
-        add_user_result = users_opt.add_user(new_user_email, new_username, password, roles)
+        add_user_result = users_opt.add_user(
+            new_user_email, new_username, password, roles
+        )
         if add_user_result == False:
             logging.error(f"add_user failed")
             return jsonify({"code": 1, "message": "failed"}), http.HTTPStatus.OK
 
         return jsonify({"code": 0, "message": "success"}), http.HTTPStatus.OK
 
-
     except Exception as e:
         return jsonify({"error": str(e)}), http.HTTPStatus.INTERNAL_SERVER_ERROR
 
 
-
-'''
+"""
 
 
 DESCRIPTION: admin modify user roles
@@ -210,7 +219,8 @@ response:
 }
 
 
-'''
+"""
+
 
 @app.route("/admin-modify-user-roles", methods=["POST"])
 def admin_modify_user_roles():
@@ -219,7 +229,9 @@ def admin_modify_user_roles():
         data = request.json
 
         # Validate common fields
-        valid, result = validate_request(data, ["logined_username", "user_email", "to_roles"])
+        valid, result = validate_request(
+            data, ["logined_username", "user_email", "to_roles"]
+        )
         if not valid:
             logging.error(f"validate_request failed: {result}, data: {data}")
             return jsonify({"error": result}), http.HTTPStatus.BAD_REQUEST
@@ -230,12 +242,20 @@ def admin_modify_user_roles():
 
         if logined_username != consts.ADMIN_NAME:
             logging.error(f"only admin can modify user roles")
-            return jsonify({"code": 1, "message": "failed,only admin can modify user roles"}), http.HTTPStatus.FORBIDDEN
+            return (
+                jsonify(
+                    {"code": 1, "message": "failed,only admin can modify user roles"}
+                ),
+                http.HTTPStatus.FORBIDDEN,
+            )
 
-
-        if to_roles != consts.ROLE_ADMIN and to_roles != consts.ROLE_USER:
+        to_roles = str(to_roles)
+        if to_roles not in VALID_ROLES:
             logging.error(f"to_roles is invalid: {to_roles}")
-            return jsonify({"code": 1, "message": "failed"}),http.HTTPStatus.BAD_REQUEST
+            return (
+                jsonify({"code": 1, "message": "failed"}),
+                http.HTTPStatus.BAD_REQUEST,
+            )
 
         users_opt = users.user_operation()
         modify_user_roles_result = users_opt.modify_user_roles(user_email, to_roles)
@@ -243,22 +263,13 @@ def admin_modify_user_roles():
             logging.error(f"modify_user_roles failed")
             return jsonify({"code": 1, "message": "failed"}), http.HTTPStatus.OK
 
-
-
-
-
-
-
-
-
         return jsonify({"code": 0, "message": "success"}), http.HTTPStatus.OK
-
 
     except Exception as e:
         return jsonify({"error": str(e)}), http.HTTPStatus.INTERNAL_SERVER_ERROR
 
 
-'''
+"""
 DESCRIPTION: admin query userlist
 url: http://localhost:5000/admin-query-userlist
 method: GET
@@ -286,13 +297,14 @@ response:
   ]
 }
 
-'''
+"""
+
 
 @app.route("/admin-query-userlist", methods=["GET"])
 def admin_query_userlist():
     try:
         # Get JSON data from the request
-        #data = request.json
+        # data = request.json
 
         # Validate common fields
         # valid, result = validate_request(data, ["logined_username"])
@@ -311,24 +323,24 @@ def admin_query_userlist():
             logging.error(f"query_user_list failed")
             return jsonify({"code": 1, "message": "failed"}), http.HTTPStatus.OK
 
-
         userlist_json = []
         for user in userlist:
             user_json = {
                 "username": user.username,
                 "roles": user.role,
-                "email": user.email
+                "email": user.email,
             }
             userlist_json.append(user_json)
 
         logging.debug("admin-query-userlist response: {}".format(userlist_json))
 
-        return jsonify({"code": 0, "message": "success", "userlist": userlist_json}), http.HTTPStatus.OK
+        return (
+            jsonify({"code": 0, "message": "success", "userlist": userlist_json}),
+            http.HTTPStatus.OK,
+        )
 
     except Exception as e:
         return jsonify({"error": str(e)}), http.HTTPStatus.INTERNAL_SERVER_ERROR
-
-
 
 
 if __name__ == "__main__":

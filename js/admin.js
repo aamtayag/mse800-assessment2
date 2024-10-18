@@ -159,15 +159,19 @@ function openRoleSelectionModal(username, email) {
 
     // Modal content: select for roles and buttons
     modal.innerHTML = `
-        <h2>Modify Role for ${username} (${email})</h2>
-        <label for="role-select">Select a new role:</label>
-        <select id="role-select">
-            <option value="admin">Admin</option>
-            <option value="user">User</option>
-            <option value="customer">Customer</option>
-        </select><br><br>
-        <button id="confirm-role-btn">Confirm</button>
-        <button id="cancel-role-btn">Cancel</button>
+		<h2 id="confirm-title">Modify Role for ${username} (${email})</h2>
+		<label id="confirm-label" for="role-select">Select a new role:</label>
+		<div class="form-group">
+			<select id="role-select">
+				<option value="admin">Admin</option>
+				<option value="user">User</option>
+				<option value="customer">Customer</option>
+			</select>
+			<div class="button-group">
+				<button id="confirm-role-btn" class="btn confirm-btn">Confirm</button>
+				<button id="cancel-role-btn" class="btn cancel-btn">Cancel</button>
+			</div>
+		</div>
     `;
 
     // Append modal to body
@@ -188,16 +192,16 @@ function openRoleSelectionModal(username, email) {
 
 
 // Function to modify user roles
-async function modifyUserRoles(username, email, newRole) {
+async function modifyUserRoles(username, user_email, newRole) {
 
     const logined_username = "admin";  // Hardcoded for now, could be dynamic
-    const roles = roleMapping(newRole);  // Convert role to internal ID or format
+    const to_roles = roleMapping(newRole);  // Convert role to internal ID or format
 
     const requestBody = {
         logined_username,
-        email,
+        user_email,
         username,
-        roles
+        to_roles
     };
 
     try {

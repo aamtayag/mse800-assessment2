@@ -9,7 +9,7 @@ class DBBase(object):
         pass
 
     def connect(self):
-        logging.error('connect function need to be implemented by subclass')
+        logging.error("connect function need to be implemented by subclass")
         raise NotImplementedError
         pass
 
@@ -27,7 +27,8 @@ class DBSqlite(DBBase):
         pass
 
     def connect(self):
-        dbfilename = '../TourBooking.db'
+        # Since the Python project is started by server.js, there is no need to go up one level
+        dbfilename = "./TourBooking.db"
         self.db_conn = sqlite3.connect(dbfilename)
         logging.debug(f"connect to sqlite db:{dbfilename}")
         pass
@@ -37,12 +38,14 @@ class DBSqlite(DBBase):
         pass
 
     def __del__(self):
-        #logging.debug('DBSqlite __del__')
+        # logging.debug('DBSqlite __del__')
         self.close()
         pass
 
+
 def getdb():
     return DBSqlite()
+
 
 g_db = None
 
