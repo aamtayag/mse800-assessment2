@@ -1,0 +1,95 @@
+/* Modal for Manage Booking */
+#manageBookingModal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    color: #141E30;
+}
+
+/* Title styling */
+#manageBookingTitle {
+    color: #35577D;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Close button styling */
+#manageBookingModal .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#manageBookingModal .close:hover {
+    color: #333;
+}
+
+/* Button container styling */
+#manageBookingModal .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds spacing between buttons */
+    margin-top: 20px;
+}
+
+/* Primary Booking Tour button in green */
+#manageBookingModal .button-container button:first-child {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+}
+
+#manageBookingModal .button-container button:first-child:hover {
+    background-color: #45a049;
+}
+
+/* Cancel Booking button in default style */
+#manageBookingModal .button-container button {
+    padding: 12px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF6F61; /* Red background */
+    color: white;
+    transition: background-color 0.3s;
+}
+
+#manageBookingModal .button-container button:hover {
+    background-color: #FF8A80;
+}
+
+/* Right-aligned Cancel button styling */
+#manageBookingModal .cancel-btn-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns Cancel button to the right */
+    margin-top: 20px;
+}
+
+#manageBookingModal .cancel-btn {
+    background-color: #f44336; /* Red background for Cancel button */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#manageBookingModal .cancel-btn:hover {
+    background-color: #d32f2f;
+}

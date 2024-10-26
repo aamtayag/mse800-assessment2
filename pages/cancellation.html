@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cancel Tour Booking</title>
     <style>
+        /* Styling for the form */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -61,7 +61,7 @@
 <body>
    <div class="form-container">
       <h2>Cancel Tour Booking</h2>
-      <form action="submit_cancellation.php" method="post">
+      <form id="cancelForm">
          <div class="form-group">
                <label for="bookingId">Booking ID</label>
                <input type="text" id="bookingId" name="bookingId" required>
@@ -90,5 +90,8 @@
          <button type="submit" class="btn">Submit Cancellation</button>
       </form>
    </div>
+
+   <!-- Link to the JavaScript file -->
+   <script type="module" src="../js/cancelBooking.js"></script>
 </body>
 </html>

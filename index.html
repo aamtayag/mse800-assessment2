@@ -1,74 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Tour Booking Management System</title>
-        <link href="css/style.css" type="text/css" rel="stylesheet">
-    </head>
-    <body>
-        <img src='https://content.codecademy.com/courses/freelance-1/unit-2/explorer.jpeg' />
-        <header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Booking Management System</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="css/manageBooking.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header with navigation links -->
+    <header>
+        <h1 id="main-title" data-lang-key="title">Welcome to Our Tour Booking System</h1>
+        <nav>
+            <a href="#home" id="nav-home" data-lang-key="nav.home">Home</a>
+            <a href="#tours" id="nav-tours" data-lang-key="nav.tours">Tours</a>
+            <a href="#about" id="nav-about" data-lang-key="nav.about">About Us</a>
+            <a href="pages/contact.html" id="nav-contact" data-lang-key="nav.contact">Contact</a>
+            <a href="javascript:void(0);" id="nav-manageBooking" onclick="openManageBooking()">Manage Booking</a>
+            <a href="pages/login.html" id="nav-login" data-lang-key="nav.login">Sign In/Up</a>
+            <a href="pages/admin.html" id="nav-admin" data-lang-key="nav.admin">Admin</a>
+        </nav>
+    </header>
 
-            <h1 id="main-title" data-lang-key="title">Welcome to Our Tour Booking System</h1>
-				<nav>
-					<a href="#home" id="nav-home" data-lang-key="nav.home">Home</a>
-					<a href="#tours" id="nav-tours" data-lang-key="nav.tours">Tours</a>
-					<a href="#about" id="nav-about" data-lang-key="nav.about">About Us</a>
-					<a href="pages/contact.html" id="nav-contact" data-lang-key="nav.contact">Contact</a>
-					<a href="pages/login.html" id="nav-login" data-lang-key="nav.login">Sign In/Up</a>
-					<a href="pages/admin.html" id="nav-admin" data-lang-key="nav.admin">Admin</a>
-				</nav>
+    <!-- Home section -->
+    <section id="home">
+        <h2 data-lang-key="sectionTitle">Your Adventure Awaits!</h2>
+        <p data-lang-key="description">Explore a variety of tours and book your next adventure easily.</p>
+    </section>
 
-			</nav>
+    <!-- Tours section with booking buttons -->
+    <section id="tours">
+        <h2>Available Tours</h2>
+        <div class="tour">
+            <h3>Māori Cultural Experience</h3>
+            <p>Immerse yourself in the rich culture of the Māori with this guided tour.</p>
+            <p><strong>Price:</strong> $150</p>
+            <p><strong>Duration:</strong> Half day</p>
+            <button onclick="openBookingForm('Māori Cultural Experience', 150)">Book Now</button>
+        </div>
+        <div class="tour">
+            <h3>Scenic Nature Tour</h3>
+            <p>Enjoy breathtaking views on this scenic nature tour.</p>
+            <p><strong>Price:</strong> $100</p>
+            <p><strong>Duration:</strong> Half day</p>
+            <button onclick="openBookingForm('Scenic Nature Tour', 100)">Book Now</button>
+        </div>
+        <div class="tour">
+            <h3>Christchurch and Canterbury Day Tour</h3>
+            <p>Visit the Botanic Gardens, the Antarctic Centre, and explore the Canterbury region.</p>
+            <p><strong>Price:</strong> $120</p>
+            <p><strong>Duration:</strong> Full day</p>
+            <button onclick="openBookingForm('Christchurch and Canterbury Day Tour', 120)">Book Now</button>
+        </div>
+        <div class="tour">
+            <h3>Franz Josef Glacier Helicopter Tour</h3>
+            <p>Take a scenic helicopter flight over the glacier, landing on the ice for an unforgettable experience.</p>
+            <p><strong>Price:</strong> $190</p>
+            <p><strong>Duration:</strong> Approximately 1.5 hours</p>
+            <button onclick="openBookingForm('Franz Josef Glacier Helicopter Tour', 190)">Book Now</button>
+        </div>
+    </section>
 
-        </header>
-
-        <section id="home" >
-            <h2 data-lang-key="sectionTitle">Your Adventure Awaits!</h2>
-            <p data-lang-key="description">Explore a variety of tours and book your next adventure easily.</p>
-        </section>
-
-        <section id="tours">
-            <h2>Available Tours</h2>
-            <div class="tour">
-                <h3>Māori Cultural Experience</h3>
-                <p>Immerse yourself in the rich culture of the Māori with this guided tour.</p>
-                <p><strong>Price:</strong> $150</p>
-                <p><strong>Duration:</strong> Half day</p>
-                <button onclick="openBookingForm('Māori Cultural Experience', 150)">Book Now</button>
-            </div>
-            <div class="tour">
-                <h3>Scenic Nature Tour</h3>
-                <p>Enjoy breathtaking views on this scenic nature tour.</p>
-                <p><strong>Price:</strong> $100</p>
-                <p><strong>Duration:</strong> Half day</p>
-                <button onclick="openBookingForm('Scenic Nature Tour', 100)">Book Now</button>
-            </div>
-            <div class="tour">
-                <h3>Christchurch and Canterbury Day Tour</h3>
-                <p>Visit the Botanic Gardens, the Antarctic Centre, and explore the surrounding Canterbury region, including Akaroa or the Banks Peninsula.</p>
-                <p><strong>Price:</strong> $120</p>
-                <p><strong>Duration:</strong> Full day</p>
-                <button onclick="openBookingForm('Christchurch and Canterbury Day Tour', 120)">Book Now</button>
-            </div>
-            <div class="tour">
-                <h3>Franz Josef Glacier Helicopter Tour</h3>
-                <p>Take a scenic helicopter flight over the glacier, landing on the ice for an unforgettable experience.</p>
-                <p><strong>Price:</strong> $190</p>
-                <p><strong>Duration:</strong> Approximately 1.5 hours</p>
-                <button onclick="openBookingForm('Franz Josef Glacier Helicopter Tour', 190)">Book Now</button>
-            </div>
-            <!-- Add more tours as needed -->
-        </section>
-		
-		
-
-        <section id="booking-form" style="display:none;">
+    <!-- Booking Form Modal -->
+    <div id="bookingFormModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingForm()">&times;</span>
             <h2>Booking Form</h2>
             <form id="tourForm">
                 <fieldset>
-                    <legend>Book the Tour!!!</legend>
+                    <legend>Book the Tour</legend>
                     <label for="tour-name">Tour Name:</label>
                     <input type="text" id="tour-name" name="tour-name" readonly><br><br>
 
@@ -84,48 +84,85 @@
                     <input type="submit" value="Submit Booking">
                 </fieldset>
             </form>
-        </section>
+        </div>
+    </div>
 
-        <footer>
-            <p>&copy; 2024 Tour Booking Management System</p>
-        </footer>
+    <!-- Manage Booking Modal -->
+    <div id="manageBookingModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="closeManageBooking()">&times;</span>
+            <h2 id="manageBookingTitle">Manage Your Booking</h2>
+            <div class="button-container">
+                <!-- Booking Tour opens the same Booking Form Modal -->
+                <button onclick="closeManageBooking(); openBookingForm('Example Tour', 100)">Booking Tour</button>
+                <button onclick="loadCancellationPage()">Cancel Booking</button>
+            </div>
+            <div class="cancel-btn-container">
+            <button class="cancel-btn" onclick="closeManageBooking()">Cancel</button>
+			</div>
+        </div>
+    </div>
 
-        <script>
-            function openBookingForm(tourName, price) {
-                document.getElementById('tour-name').value = tourName;
-                document.getElementById('booking-form').style.display = 'block';
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Tour Booking Management System</p>
+    </footer>
+
+    <!-- JavaScript files -->
+	<script type="module" src="js/manageBooking.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- JavaScript functions -->
+    <script>
+        // Function to open the Manage Booking modal
+        function openManageBooking() {
+            const modal = document.getElementById("manageBookingModal");
+            if (modal) {
+                modal.style.display = "block";
+                window.onclick = function(event) {
+                    if (event.target === modal) {
+                        closeManageBooking();
+                    }
+                };
             }
+        }
 
-            document.getElementById('tourForm').addEventListener('submit', async (e) => {
-                e.preventDefault();
+        // Function to close the Manage Booking modal
+        function closeManageBooking() {
+            const modal = document.getElementById("manageBookingModal");
+            if (modal) {
+                modal.style.display = "none";
+                window.onclick = null;
+            }
+        }
 
-                const tour = document.getElementById('tour-name').value;
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const date = document.getElementById('date').value;
-                const status = 1;
+        // Function to open the booking form modal with selected tour details
+        function openBookingForm(tourName, price) {
+            const modal = document.getElementById("bookingFormModal");
+            if (modal) {
+                document.getElementById("tour-name").value = tourName;
+                modal.style.display = "block";
+                window.onclick = function(event) {
+                    if (event.target === modal) {
+                        closeBookingForm();
+                    }
+                };
+            }
+        }
 
-                const response = await fetch('http://localhost:3000/add-item', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ tour, name, email, date, status }),
-                });
+        // Function to close the booking form modal
+        function closeBookingForm() {
+            const modal = document.getElementById("bookingFormModal");
+            if (modal) {
+                modal.style.display = "none";
+                window.onclick = null;
+            }
+        }
 
-                if (response.ok) {
-                    alert('Item added successfully!');
-                    document.getElementById('tourForm').reset();
-                } else {
-                    const errorMessage = await response.text();
-                    alert('Error adding item: ' + errorMessage);
-                }
-            });
-        </script>
-		
-	
-		<script src="js/script.js"></script>
-
-
-    </body>
+        // Function to navigate to the cancellation page
+        function loadCancellationPage() {
+            window.location.href = 'pages/cancellation.html';
+        }
+    </script>
+</body>
 </html>
