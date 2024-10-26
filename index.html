@@ -16,7 +16,7 @@
             <a href="#tours" id="nav-tours" data-lang-key="nav.tours">Tours</a>
             <a href="#about" id="nav-about" data-lang-key="nav.about">About Us</a>
             <a href="pages/contact.html" id="nav-contact" data-lang-key="nav.contact">Contact</a>
-            <a href="javascript:void(0);" id="nav-manageBooking" onclick="openManageBooking()">Manage Booking</a>
+            <a href="javascript:void(0);" id="nav-manageBooking" data-lang-key="nav.manageBooking" onclick="openManageBooking()">Manage Booking</a>
             <a href="pages/login.html" id="nav-login" data-lang-key="nav.login">Sign In/Up</a>
             <a href="pages/admin.html" id="nav-admin" data-lang-key="nav.admin">Admin</a>
         </nav>
@@ -30,34 +30,34 @@
 
     <!-- Tours section with booking buttons -->
     <section id="tours">
-        <h2>Available Tours</h2>
+        <h2 data-lang-key="tours.title">Available Tours</h2>
         <div class="tour">
             <h3>Māori Cultural Experience</h3>
             <p>Immerse yourself in the rich culture of the Māori with this guided tour.</p>
             <p><strong>Price:</strong> $150</p>
             <p><strong>Duration:</strong> Half day</p>
-            <button onclick="openBookingForm('Māori Cultural Experience', 150)">Book Now</button>
+            <button data-lang-key="tours.bookNow" onclick="openBookingForm('Māori Cultural Experience', 150)">Book Now</button>
         </div>
         <div class="tour">
             <h3>Scenic Nature Tour</h3>
             <p>Enjoy breathtaking views on this scenic nature tour.</p>
             <p><strong>Price:</strong> $100</p>
             <p><strong>Duration:</strong> Half day</p>
-            <button onclick="openBookingForm('Scenic Nature Tour', 100)">Book Now</button>
+            <button data-lang-key="tours.bookNow" onclick="openBookingForm('Scenic Nature Tour', 100)">Book Now</button>
         </div>
         <div class="tour">
             <h3>Christchurch and Canterbury Day Tour</h3>
             <p>Visit the Botanic Gardens, the Antarctic Centre, and explore the Canterbury region.</p>
             <p><strong>Price:</strong> $120</p>
             <p><strong>Duration:</strong> Full day</p>
-            <button onclick="openBookingForm('Christchurch and Canterbury Day Tour', 120)">Book Now</button>
+            <button data-lang-key="tours.bookNow" onclick="openBookingForm('Christchurch and Canterbury Day Tour', 120)">Book Now</button>
         </div>
         <div class="tour">
             <h3>Franz Josef Glacier Helicopter Tour</h3>
             <p>Take a scenic helicopter flight over the glacier, landing on the ice for an unforgettable experience.</p>
             <p><strong>Price:</strong> $190</p>
             <p><strong>Duration:</strong> Approximately 1.5 hours</p>
-            <button onclick="openBookingForm('Franz Josef Glacier Helicopter Tour', 190)">Book Now</button>
+            <button data-lang-key="tours.bookNow" onclick="openBookingForm('Franz Josef Glacier Helicopter Tour', 190)">Book Now</button>
         </div>
     </section>
 
@@ -65,23 +65,22 @@
     <div id="bookingFormModal" class="modal" style="display:none;">
         <div class="modal-content">
             <span class="close" onclick="closeBookingForm()">&times;</span>
-            <h2>Booking Form</h2>
+            <h2 id="tourFormTitle" data-lang-key="tourForm.title">Booking Form</h2>
             <form id="tourForm">
                 <fieldset>
-                    <legend>Book the Tour</legend>
-                    <label for="tour-name">Tour Name:</label>
+                    <label for="tour-name" data-lang-key="tourForm.tourName">Tour Name:</label>
                     <input type="text" id="tour-name" name="tour-name" readonly><br><br>
 
-                    <label for="name">Your Name:</label>
+                    <label for="name" data-lang-key="tourForm.name">Your Name:</label>
                     <input type="text" id="name" name="name" required><br><br>
 
-                    <label for="email">Email:</label>
+                    <label for="email" data-lang-key="tourForm.email" >Email:</label>
                     <input type="email" id="email" name="email" required><br><br>
 
-                    <label for="date">Tour Date:</label>
+                    <label for="date" data-lang-key="tourForm.tourDate">Tour Date:</label>
                     <input type="date" id="date" name="date" required><br><br>
 
-                    <input type="submit" value="Submit Booking">
+                    <input type="submit" data-lang-key="tourForm.submit" value="Submit Booking">
                 </fieldset>
             </form>
         </div>
@@ -91,14 +90,14 @@
     <div id="manageBookingModal" class="modal" style="display:none;">
         <div class="modal-content">
             <span class="close" onclick="closeManageBooking()">&times;</span>
-            <h2 id="manageBookingTitle">Manage Your Booking</h2>
+            <h2 id="manageBookingTitle" data-lang-key="manageBooking.title">Manage Your Booking</h2>
             <div class="button-container">
                 <!-- Booking Tour opens the same Booking Form Modal -->
-                <button onclick="closeManageBooking(); openBookingForm('Example Tour', 100)">Booking Tour</button>
-                <button onclick="loadCancellationPage()">Cancel Booking</button>
+                <button data-lang-key="manageBooking.bookingTour" onclick="closeManageBooking(); openBookingForm('Example Tour', 100)">Booking Tour</button>
+                <button data-lang-key="manageBooking.cancelBooking" onclick="loadCancellationPage()">Cancel Booking</button>
             </div>
             <div class="cancel-btn-container">
-            <button class="cancel-btn" onclick="closeManageBooking()">Cancel</button>
+            <button data-lang-key="manageBooking.cancel" class="cancel-btn" onclick="closeManageBooking()">Cancel</button>
 			</div>
         </div>
     </div>
@@ -109,7 +108,8 @@
     </footer>
 
     <!-- JavaScript files -->
-	<script type="module" src="js/manageBooking.js"></script>
+	<script src="js/language.js" type="module"></script>
+	<script src="js/manageBooking.js" type="module"></script>
     <script src="js/script.js"></script>
 
     <!-- JavaScript functions -->

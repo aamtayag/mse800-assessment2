@@ -93,3 +93,7 @@
 #manageBookingModal .cancel-btn:hover {
     background-color: #d32f2f;
 }
+
+#tourFormTitle {
+	color: black;
+}

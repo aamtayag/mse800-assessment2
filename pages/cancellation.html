@@ -56,6 +56,12 @@
         .btn:hover {
             background-color: #c0392b;
         }
+		#language-select {
+			display: block;
+			margin: 20px auto;
+			text-align: center;
+			width: fit-content;
+		}
     </style>
 </head>
 <body>
@@ -63,35 +69,36 @@
       <h2>Cancel Tour Booking</h2>
       <form id="cancelForm">
          <div class="form-group">
-               <label for="bookingId">Booking ID</label>
+               <label data-lang-key="cancelForm.bookingId" for="bookingId">Booking ID</label>
                <input type="text" id="bookingId" name="bookingId" required>
          </div>
          <div class="form-group">
-               <label for="name">Full Name</label>
+               <label data-lang-key="cancelForm.fullName" for="name">Full Name</label>
                <input type="text" id="name" name="name" required>
          </div>
          <div class="form-group">
-               <label for="email">Email Address</label>
+               <label data-lang-key="cancelForm.emailAddress" for="email">Email Address</label>
                <input type="email" id="email" name="email" required>
          </div>
          <div class="form-group">
-               <label for="reason">Reason for Cancellation</label>
+               <label data-lang-key="cancelForm.reason" for="reason">Reason for Cancellation</label>
                <select id="reason" name="reason" required>
-                  <option value="personal">Personal</option>
-                  <option value="schedule">Scheduling Conflict</option>
-                  <option value="health">Health Reasons</option>
-                  <option value="other">Other</option>
+                  <option data-lang-key="cancelForm.reasons.personal" value="personal">Personal</option>
+                  <option data-lang-key="cancelForm.reasons.schedule" value="schedule">Scheduling Conflict</option>
+                  <option data-lang-key="cancelForm.reasons.health" value="health">Health Reasons</option>
+                  <option data-lang-key="cancelForm.reasons.other" value="other">Other</option>
                </select>
          </div>
          <div class="form-group">
-               <label for="comments">Additional Comments (Optional)</label>
+               <label data-lang-key="cancelForm.additionalComments" for="comments">Additional Comments (Optional)</label>
                <textarea id="comments" name="comments" rows="4"></textarea>
          </div>
-         <button type="submit" class="btn">Submit Cancellation</button>
+         <button data-lang-key="cancelForm.submit" type="submit" class="btn">Submit Cancellation</button>
       </form>
    </div>
 
    <!-- Link to the JavaScript file -->
+   <script src="../js/language.js" type="module"></script>
    <script type="module" src="../js/cancelBooking.js"></script>
 </body>
 </html>

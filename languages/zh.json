@@ -5,6 +5,7 @@
         "tours": "旅行",
         "about": "关于我们",
         "contact": "联系我们",
+		"manageBooking": "管理预定",
         "login": "登录/注册",
         "admin": "管理员"
     },
@@ -18,5 +19,38 @@
 		"phoneLabel": "电话：",
 		"addressLabel": "地址：",
 		"emailButton": "给我们发邮件"
-	}
+	},
+	"manageBooking":{
+		"title": "管理你的预定",
+		"bookingTour": "预定旅游",
+		"cancelBooking": "取消旅游",
+		"cancel": "取消"
+	},
+	"tourForm":{
+		"title": "预定订单",
+		"tourName": "旅程名字:",
+		"name": "你的名字:",
+		"email": "电子邮件:",
+		"tourDate": "旅程日期:",
+		"submit": "提交预定"
+	},
+	"tours":{
+		"title": "可用的旅行",
+		"bookNow": "现在预定"
+	},
+	"cancelForm": {
+        "title": "取消旅游预订",
+        "bookingId": "预订编号",
+        "fullName": "姓名",
+        "emailAddress": "电子邮件地址",
+        "reason": "取消原因",
+        "reasons": {
+            "personal": "个人原因",
+            "schedule": "时间冲突",
+            "health": "健康原因",
+            "other": "其他"
+        },
+        "additionalComments": "附加评论（可选）",
+        "submit": "提交取消"
+    }
 }

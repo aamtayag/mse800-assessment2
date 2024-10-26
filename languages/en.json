@@ -5,6 +5,7 @@
         "tours": "Tours",
         "about": "About Us",
         "contact": "Contact",
+		"manageBooking": "Manage Booking",
         "login": "Sign In/Up",
         "admin": "Admin"
     },
@@ -18,5 +19,38 @@
 		"phoneLabel": "Phone:",
 		"addressLabel": "Address:",
 		"emailButton": "Send us an Email"
+	},
+	"manageBooking":{
+		"title": "Manage Your Booking",
+		"bookingTour": "Booking Tour",
+		"cancelBooking": "CancelBooking",
+		"cancel": "Cancel"
+	},
+	"tourForm":{
+		"title": "Booking Form",
+		"tourName": "Tour Name:",
+		"name": "Your Name:",
+		"email": "Email:",
+		"tourDate": "Tour Date:",
+		"submit": "Submit Booking"
+	},
+	"tours":{
+		"title": "Available Tours",
+		"bookNow": "Book Now"
+	},
+	"cancelForm": {
+        "title": "Cancel Tour Booking",
+        "bookingId": "Booking ID",
+        "fullName": "Full Name",
+        "emailAddress": "Email Address",
+        "reason": "Reason for Cancellation",
+        "reasons": {
+            "personal": "Personal",
+            "schedule": "Scheduling Conflict",
+            "health": "Health Reasons",
+            "other": "Other"
+        },
+        "additionalComments": "Additional Comments (Optional)",
+        "submit": "Submit Cancellation"
 	}
 }

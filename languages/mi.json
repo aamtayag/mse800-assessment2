@@ -5,6 +5,7 @@
         "tours": "Ngā Haerenga",
         "about": "Mō Mātou",
         "contact": "Whakapā mai",
+		"manageBooking": "Whakahaere Rahui",
         "login": "Takiuru/Takiwā",
         "admin": "Kaiwhakahaere"
     },
@@ -18,5 +19,38 @@
 		"phoneLabel": "Waea:",
 		"addressLabel": "Wāhi Noho:",
 		"emailButton": "Tukua mai he Īmēra"
-	}
+	},
+	"manageBooking":{
+		"title": "Whakahaere i To Rahu",
+		"bookingTour": "Haere pukapuka",
+		"cancelBooking": "Whakakorehia te Rahui",
+		"cancel": "Whakakore"
+	},
+	"tourForm":{
+		"title": "Puka Rahui",
+		"tourName": "Ingoa Haereere:",
+		"name": "To Ingoa:",
+		"email": "Imera:",
+		"tourDate": "Rā haerenga:",
+		"submit": "Tukuhia te Rahui"
+	},
+	"tours":{
+		"title": "Nga haerenga e waatea ana",
+		"bookNow": "Puka Inaianei"
+	},
+	"cancelForm": {
+        "title": "Whakakore i te Tāima Haere",
+        "bookingId": "ID Tāima",
+        "fullName": "Ingoa Katoa",
+        "emailAddress": "Wāhitau Īmēra",
+        "reason": "Take mō te Whakakore",
+        "reasons": {
+            "personal": "Ngā Take Whaiaro",
+            "schedule": "Raruraru Wātaka",
+            "health": "Ngā Take Hauora",
+            "other": "Ētahi Atu"
+        },
+        "additionalComments": "Ngā Kōrero Āpitihanga (Tūao)",
+        "submit": "Tuku Whakakore"
+    }
 }
