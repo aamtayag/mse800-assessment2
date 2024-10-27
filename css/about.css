@@ -1,0 +1,49 @@
+/* about.css - Styles for the About Us page */
+
+#about {
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    color: #ffffff;
+}
+
+#about h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #FF6F61;
+}
+
+.team-member {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.team-member h3 {
+    font-size: 1.5em;
+    color: #FF6F61;
+}
+
+.team-member p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.team-member h4 {
+    margin-top: 15px;
+    font-size: 1.2em;
+    color: #ffffff;
+}
+
+.team-member ul {
+    padding-left: 20px;
+}
+
+.team-member ul li {
+    margin-bottom: 8px;
+    font-size: 1em;
+    line-height: 1.5;
+}
