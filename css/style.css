@@ -64,15 +64,32 @@ img {
     object-fit: cover;
 }
 
+/* Set the tours container to horizontal Flexbox */
+#tours {
+	display: flex;
+	flex-wrap: wrap; /* Automatic line break */
+	gap: 20px; /* Spacing between cards */
+	justify-content: center; /* Horizontal center alignment */
+	padding: 20px;
+}
+
+/* Center the "Available Tours" title */
+#tours h2 {
+	width: 100%;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
 /* Tour Cards */
 .tour {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 15px;
-    margin: 15px auto;
-    max-width: 500px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+	flex: 1 1 250px; /* The minimum width of each card is 250px, allowing for scaling */
+	max-width: 300px; /* Limit the maximum width of the card */
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 10px;
+	padding: 15px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	transition: transform 0.3s ease;
 }
 
 .tour:hover {
@@ -210,6 +227,10 @@ footer {
 @media (max-width: 768px) {
     section {
         padding: 20px;
+    }
+	#tours {
+        flex-direction: column;
+        align-items: center;
     }
 
     .tour {
