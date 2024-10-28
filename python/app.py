@@ -12,11 +12,11 @@ import os
 import json
 
 # gete config.json path
-config_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config.json')
+config_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "config.json")
 
 # read config.json
 try:
-    with open(config_path, 'r') as config_file:
+    with open(config_path, "r") as config_file:
         config = json.load(config_file)
 except FileNotFoundError:
     logging.error(f"Config file not found at {config_path}")
@@ -141,6 +141,11 @@ def booking_cancellation():
             email, id, name, consts.BOOKING_STATUS_CANCELLED
         )
         if result == True:
+            # TODO The email template with the modified status is currently used
+            EmailSender.send_email(
+                email,
+                EmailTemplates.get_order_status_change_message(email, "Cancelled"),
+            )
             return jsonify({"code": 0, "message": "modify success"}), http.HTTPStatus.OK
         else:
             return jsonify({"code": 1, "message": "modify failed"}), http.HTTPStatus.OK

@@ -1,0 +1,34 @@
+0. Project Initialization
+Step 1: Clone the project from GitHub.
+Step 2: Follow the instructions in the Readme.md file to initialize the project. This may include installing dependencies, setting up the environment, and configuring any required settings.
+Step 3: Once setup is complete, start the project to ensure everything is running correctly.
+
+
+1. Booking a Trip
+Step 1: On the homepage, find and select the desired tour package.
+Step 2: Click on the package and fill in all required information, including name, contact details, etc.
+Step 3: After completing the form, click the "Submit" button.
+Step 4: Once submitted successfully, the system will automatically send a confirmation email to your email address. Please check your inbox to verify the booking details.
+
+
+2. Canceling a Booking
+Step 1: Go to the "Manage Booking" page.
+Step 2: Select the booking you wish to cancel and click the "Cancel Booking" button.
+Step 3: On the cancellation page, fill in the required details, including your booking reference number (found in your initial booking submission and confirmation email).
+Step 4: After completing the information, click "Submit."
+Step 5: Upon successful submission, the system will send a cancellation confirmation email to your inbox.
+
+
+3. Language Switching
+Step 1: Locate the language switch feature at the bottom of the homepage or Contact Us page.
+Step 2: Click the dropdown to choose your preferred language. Currently, English, Māori, and Chinese are available.
+Step 3: After selecting a language, the page will automatically refresh to display in the chosen language. Language data has been stored in a separate file, so adding additional languages in the future only requires updating that file.
+
+
+4. Admin Login
+Step 1: On the homepage, find and click on the "admin" option to access the admin login page.
+Step 2: Enter the administrator username and password to log in.
+Step 3: After logging in, you will enter the admin interface, where you can perform the following actions:
+View the list of users.
+Add a new user: Click the "Add User" button, fill in the necessary information, and click "Submit" to complete the addition.
+Modify user roles: In the user list, select the user whose role needs to be updated, click "Edit Role," and adjust the user’s role as needed.

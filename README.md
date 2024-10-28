@@ -35,20 +35,13 @@ SQLite3 is the database used in this project.
   
 - **Windows and Linux**: Download the appropriate version of SQLite3 from the [SQLite website](https://sqlite.org/download.html) or install it using your package manager.
 
-### 4. Create a Project Directory
-Create a directory for your project and navigate into it:
-```bash
-mkdir tour-booking-system
-cd tour-booking-system
-```
-
-### 5. Initialize a Node.js Project
+### 4. Initialize a Node.js Project
 Initialize a new Node.js project, which will generate a `package.json` file:
 ```bash
 npm init -y
 ```
 
-### 6. Install Required Packages
+### 5. Install Required Packages
 Install the necessary packages for the project:
 ```bash
 npm install express sqlite3 body-parser cors axios
