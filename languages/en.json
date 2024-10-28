@@ -23,7 +23,7 @@
 	"manageBooking":{
 		"title": "Manage Your Booking",
 		"bookingTour": "Booking Tour",
-		"cancelBooking": "CancelBooking",
+		"cancelBooking": "Cancel Booking",
 		"cancel": "Cancel"
 	},
 	"tourForm":{

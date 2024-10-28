@@ -8,6 +8,24 @@ import system
 import booking
 import consts
 import users
+import os
+import json
+
+# gete config.json path
+config_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config.json')
+
+# read config.json
+try:
+    with open(config_path, 'r') as config_file:
+        config = json.load(config_file)
+except FileNotFoundError:
+    logging.error(f"Config file not found at {config_path}")
+    config = {}
+except json.JSONDecodeError:
+    logging.error(f"Config file at {config_path} is not a valid JSON")
+    config = {}
+
+BACKEND_PORT = config.get("BACKEND_PORT", 2000)
 
 app = Flask(__name__)
 CORS(app)
@@ -346,4 +364,4 @@ def admin_query_userlist():
 if __name__ == "__main__":
     system.init_log()
     system.init_system()
-    app.run(host="0.0.0.0", port=2000, debug=True)
+    app.run(host="0.0.0.0", port=BACKEND_PORT, debug=True)

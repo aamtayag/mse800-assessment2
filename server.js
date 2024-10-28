@@ -1,4 +1,4 @@
-
+const config = require('./config.json');
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const bodyParser = require('body-parser');
@@ -7,10 +7,10 @@ const axios = require('axios');
 const { spawn } = require('child_process');
 
 const app = express();
-const PORT = 3000;
+const PORT = config.NODE_PORT || 3000;
 // const EMAIL_PORT = 5000;
-const EMAIL_PORT = 2000;
-const STATIC_SERVER_PORT = 8000;
+const BACKEND_PORT = config.BACKEND_PORT || 2000;
+const STATIC_SERVER_PORT = config.STATIC_SERVER_PORT || 8000;
 
 // Middleware
 app.use(cors());
@@ -68,6 +68,11 @@ app.post('/add-item', (req, res) => {
     stmt.finalize();
 });
 
+// get config
+app.get('/config', (req, res) => {
+    res.json(config);
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
@@ -75,10 +80,11 @@ app.listen(PORT, () => {
 
 // Function to send email
 function sendEmail(recipient_email, email_type, email_name, order_id) {
-    return axios.post(`http://localhost:${EMAIL_PORT}/send-email`, {
+    return axios.post(`http://localhost:${BACKEND_PORT}/send-email`, {
         recipient_email: recipient_email,
         email_type: email_type,
         email_name: email_name,
         order_id: order_id,
     });
 }
+
