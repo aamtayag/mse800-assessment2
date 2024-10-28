@@ -248,7 +248,8 @@ async function loadTours() {
             tourTableBody.appendChild(row);
         });
     } else {
-        alert('Failed to load tours');
+		// TODO alert('Failed to load tours');
+		alert('Feature coming soon! We\'re working hard to bring this to you.');
     }
 }
 

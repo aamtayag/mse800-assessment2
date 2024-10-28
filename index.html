@@ -93,18 +93,16 @@
 
     <!-- Manage Booking Modal -->
     <div id="manageBookingModal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <span class="close" onclick="closeManageBooking()">&times;</span>
-            <h2 id="manageBookingTitle" data-lang-key="manageBooking.title">Manage Your Booking</h2>
-            <div class="button-container">
-                <!-- Booking Tour opens the same Booking Form Modal -->
-                <button data-lang-key="manageBooking.bookingTour" onclick="closeManageBooking(); openBookingForm('Example Tour', 100)">Booking Tour</button>
-                <button data-lang-key="manageBooking.cancelBooking" onclick="loadCancellationPage()">Cancel Booking</button>
-            </div>
-            <div class="cancel-btn-container">
-            <button data-lang-key="manageBooking.cancel" class="cancel-btn" onclick="closeManageBooking()">Cancel</button>
-			</div>
-        </div>
+		<span class="close" onclick="closeManageBooking()">&times;</span>
+		<h2 id="manageBookingTitle" data-lang-key="manageBooking.title">Manage Your Booking</h2>
+		<div class="button-container">
+			<!-- Booking Tour opens the same Booking Form Modal -->
+			<button data-lang-key="manageBooking.bookingTour" onclick="closeManageBooking(); openBookingForm('Example Tour', 100)">Booking Tour</button>
+			<button data-lang-key="manageBooking.cancelBooking" onclick="loadCancellationPage()">Cancel Booking</button>
+		</div>
+		<div class="cancel-btn-container">
+			<button data-lang-key="manageBooking.cancel" class="cancel-btn" onclick="closeManageBooking()">Cancel</button>
+		</div>
     </div>
 
     <!-- Footer -->
